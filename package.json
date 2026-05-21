@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "homepage": "https://ochafik.com/openscad2/",
+  "homepage": "https://myoung8223.github.io/openscad-playground",
   "dependencies": {
     "@gltf-transform/core": "^4.1.1",
     "@gltf-transform/extensions": "^4.1.1",
@@ -37,7 +37,9 @@
     "build:libs:clean": "LIBS_BUILD_MODE=clean webpack --config webpack.libs.config.js",
     "build:libs:wasm": "LIBS_BUILD_MODE=wasm webpack --config webpack.libs.config.js",
     "build:libs:fonts": "LIBS_BUILD_MODE=fonts webpack --config webpack.libs.config.js",
-    "build:all": "npm run build:libs && npm run build"
+    "build:all": "npm run build:libs && npm run build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "eslintConfig": {
     "extends": [
@@ -61,6 +63,7 @@
     "node": ">=18.12.0"
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "@types/chroma-js": "^2.4.5",
     "@types/debug": "^4.1.12",
     "@types/filesystem": "^0.0.36",
