@@ -1,36 +1,51 @@
-name: Test Build
+name: Test Build and Deploy
 
 on:
   push:
-  pull_request:
+    branches: [ "main" ] # Only deploys when you push to main
   workflow_dispatch:
 
+# Grant permissions required for GitHub Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-24.04
-    strategy:
-      fail-fast: false
-      matrix:
-        node: [
-          {"name": "LTS", "version": "lts/-2"},
-          {"name": "latest", "version": "latest"}
-        ]
-    name: Node ${{ matrix.node.name }}
-    env:
-      CI: true
     steps:
-      - uses: actions/checkout@v6
-      - name: Setup node ${{ matrix.node.name }}
+      - name: Checkout Code
+        uses: actions/checkout@v6
+
+      - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: ${{ matrix.node.version }}
-      - run: npm install
-      - run: npm run build:all
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v7
+          node-version: 'lts/-2' # Uses the stable LTS version
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Compile Application Assets
+        run: npm run build:all
+
+      - name: Merge Public Assets and Compiled Code
+        run: |
+          mkdir dist_site
+          cp -R public/* dist_site/
+          cp -R dist/* dist_site/
+
+      - name: Setup Pages Settings
+        uses: actions/configure-pages@v4
+
+      - name: Upload Pages Deployment Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: dist-node-${{ matrix.node.name }}
-          path: dist
-          retention-days: 30
-      #- run: NODE_ENV=development npm run test:e2e
-      #- run: NODE_ENV=production  npm run test:e2e
+          path: 'dist_site' # Instructs GitHub to deploy the merged folder
+
+      - name: Deploy to GitHub Pages Live Site
+        uses: actions/deploy-pages@v4
