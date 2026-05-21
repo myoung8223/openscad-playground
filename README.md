@@ -5,7 +5,7 @@
 [OpenSCAD Playground with Simple Open and Save (Fork) PWA](https://myoung8223.github.io/openscad-playground/)
 
 <a href="https://myoung8223.github.io/openscad-playground/" target="_blank">
-<img width="694" alt="image" src="https://github.com/user-attachments/assets/58305f27-7e95-4c56-9cd7-0d766e0a21ae" />
+<img width="694" alt="image" src="https://github.com/myoung8223/openscad-playground/blob/main/OpenSCAD%20Playground%20Fork.png" />
 </a>
 
 
