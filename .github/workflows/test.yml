@@ -35,7 +35,7 @@ jobs:
 
       - name: Merge Public Assets and Compiled Code
         run: |
-          mkdir dist_site
+          mkdir -p dist_site
           cp -R public/* dist_site/
           cp -R dist/* dist_site/
 
