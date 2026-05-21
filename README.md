@@ -1,6 +1,6 @@
 # OpenSCAD Playground with Simple Open and Save (Fork)
 
-> **Note on this Fork:** This is a specialized fork of the original OpenSCAD Playground project. It introduces very simple open and save features for .scad source code to meet an immediate project need. While the original playground is an incredible tool that will undoubtedly implement these features expertly in its own time, I required this simple file system integration now to deploy OpenSCAD training across an environment dominated by ChromeOS devices.
+> **Note on this Fork:** This is a specialized fork of [the original OpenSCAD Playground project](https://github.com/openscad/openscad-playground). It adds a very simple open and save features for .scad source code to meet an immediate project need. While the original playground is an incredible tool that will undoubtedly implement these features expertly in its own time, I required this simple file system integration now to deploy OpenSCAD training across an environment dominated by ChromeOS devices. Gemini was extensively used for adding those features and getting the PWA on GitHub Pages.
 
 [OpenSCAD Playground with Simple Open and Save (Fork) PWA](https://myoung8223.github.io/openscad-playground/)
 
@@ -8,6 +8,7 @@
 <img width="694" alt="image" src="https://github.com/myoung8223/openscad-playground/blob/main/OpenSCAD%20Playground%20Fork.png" />
 </a>
 
+## Original Project Information
 
 [Open the Demo](https://ochafik.com/openscad2)
 
