@@ -11,7 +11,7 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# Allow only one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -27,7 +27,6 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: "lts/-2"
-          cache: 'npm'
 
       - name: Install Dependencies
         run: npm install
